@@ -11,13 +11,14 @@ namespace ConsoleApp9
 		static void Main(string[] args)
 		{
 			Artikal a = new Artikal("001", "plazam", 25, 125);
+
 			Console.WriteLine($"{a.sifra} - {a.naziv} - {a.uCenu} - {a.marza}% - {a.IzlCena()}");
 			a.izmeniStanje(5);
-			Console.WriteLine(a.stanje);
+			Console.WriteLine(a.ProcitajStanje());
 			a.izmeniStanje(7);
-			Console.WriteLine(a.stanje);
+			Console.WriteLine(a.ProcitajStanje());
 			a.izmeniStanje(-20);
-			Console.WriteLine(a.stanje);
+			Console.WriteLine(a.ProcitajStanje());
 			Console.ReadKey();
 		}
 	}
@@ -28,8 +29,13 @@ namespace ConsoleApp9
 		//public string naziv;
 		public int marza;
 		public decimal uCenu;
-		public int stanje = 0;
+		private int stanje = 0;
 		
+		public int ProcitajStanje()
+		{
+			return stanje;		
+		}
+
 		public void izmeniStanje(int kom)
 		{
 			if (stanje + kom >= 0)
